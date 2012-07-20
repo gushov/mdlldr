@@ -1,0 +1,74 @@
+var async = require('async');
+
+function writeModules(err, js, next) {
+
+  fs.writeFile(mount, js, 'utf8', function (err) {
+    next(err);
+  });
+
+}
+
+function parseModules(moduleNames, modulePath, next) {
+
+  var modules = [];
+
+  //worker
+  var q = async.queue(function (moduleName, cb) {
+
+    var path = path.join(modulePath, moduleName + '.js');
+
+    var i = modules.indexOf(moduleName);
+
+    if (i > -1) {
+
+      //remove name from modules array
+      modules.splice(i, 1);
+      modules.splice(modules.length, 0, moduleName);
+
+    } else {
+
+      //read module
+      fs.readFile();
+    }
+
+    //add name to modules array
+    //push dependencies
+  }, 2);
+
+  q.drain = next;
+
+  q.push(moduleNames, function (err) {
+    //err
+  });
+
+}
+
+function parseWrapper() {
+}
+
+function run() {
+
+  async.parallel([
+    parseModules,
+    parseWrapper
+  ],
+  function () {
+  });
+
+}
+
+module.exports = function (mount, moduleNames, modulePath, overrides) {
+
+  return {
+
+    write: function (err, js, next) {
+
+      fs.writeFile(mount, js, 'utf8', function (err) {
+        next(err);
+      });
+
+    }
+
+  };
+
+};

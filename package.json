@@ -1,0 +1,17 @@
+{
+  "author": "Gus",
+  "name": "sharemodule",
+  "description": "Node module for sharing other Node modules with the browser.",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/gushov/sharemodule.git"
+  },
+  "main": "index.js",
+  "engines": {
+    "node": "~0.6.7"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "optionalDependencies": {}
+}
