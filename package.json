@@ -1,11 +1,11 @@
 {
-  "author": "Gus",
-  "name": "sharemodule",
-  "description": "Node module for sharing other Node modules with the browser.",
+  "author": "Gus Hovland",
+  "name": "mdlldr",
+  "description": "Node module for loading Node modules in the browser.",
   "version": "0.0.0",
   "repository": {
     "type": "git",
-    "url": "git://github.com/gushov/sharemodule.git"
+    "url": "git://github.com/gushov/mdlldr.git"
   },
   "main": "index.js",
   "engines": {

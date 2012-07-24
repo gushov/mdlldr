@@ -1,5 +1,8 @@
+/*jshint evil: true, bitwise:false, strict: false, undef: true, white: false, node:true */
+
 var sinon = require('sinon');
-var sharemodule = require('../lib/mdlldr');
+var path = require('path');
+var mdlldr = require('../lib/mdlldr');
 
 /*
   ======== A Handy Little Nodeunit Reference ========
@@ -21,7 +24,7 @@ var sharemodule = require('../lib/mdlldr');
     test.ifError(value)
 */
 
-exports['test model'] = {
+exports['test mdlldr'] = {
 
   setUp: function(done) {
     done();
@@ -31,19 +34,23 @@ exports['test model'] = {
     done();
   },
 
-  'create model': function(test) {
+  'test load modules': function(test) {
 
-    var mongo = lilmodel.model({
-      eats: 'mongobites',
-      treats: 'nonnon'
+    console.log(' test', __dirname);
+
+    var moduleNames = ['modA'];
+    var modulePath = path.join(__dirname, '/fixtures');
+
+    mdlldr.run(moduleNames, modulePath, {}, function (err, js) {
+      console.log('js', err, js);
+      eval(js);
+      //var modA = this.mdlldr('modA');
+      //console.log('modA', modA);
+      test.done();
     });
 
-    var mgo = mongo.create();
-
-    test.equal(mgo.eats, 'mongobites');
-    test.equal(mgo.treats, 'nonnon');
-
-    test.done();
+    //test.equal(mgo.eats, 'mongobites');
+    //test.equal(mgo.treats, 'nonnon');
   }
 
 };

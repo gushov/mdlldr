@@ -1,6 +1,6 @@
 /*jshint bitwise:true, eqeqeq:true, undef:true, browser:true */
 
-(function () {
+(function (context) {
 
   "use strict";
 
@@ -8,7 +8,7 @@
 
   /*_OVERRIDES_*/
 
-  var require = window.mdlldr = function(name) {
+  var require = context.mdlldr = function(name) {
     return exported[name];
   };
 
@@ -21,4 +21,4 @@
 
   /*_WRAPPED_MODULES_*/
 
-}());
+}(this));
