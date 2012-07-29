@@ -1,11 +1,10 @@
 /*jshint evil: false, bitwise:false, strict: false, undef: true, white: false, node:true */
 
-var modB = require('./modB');
-var modD = require('./packD/modD');
+var myMod = require('myMod');
 
 module.exports = {
-  id: 'a',
+  id: 'l',
   yo: function () {
-    return modD.yo() + modB.yo();
+    return 's' + this.id + myMod.hi();
   }
 };

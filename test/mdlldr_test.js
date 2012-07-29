@@ -36,21 +36,43 @@ exports['test mdlldr'] = {
 
   'test load modules': function(test) {
 
-    console.log(' test', __dirname);
-
     var moduleNames = ['modA'];
     var modulePath = path.join(__dirname, '/fixtures');
 
-    mdlldr.run(moduleNames, modulePath, {}, function (err, js) {
-      console.log('js', err, js);
+    var myObj = {
+      id: 'myobj',
+      hi: function () {
+        return 'hi';
+      }
+    };
+
+    mdlldr.run(moduleNames, modulePath, {'myMod': 'myObj'}, function (err, js) {
+
+      if (err) { throw new Error(err); }
       eval(js);
-      //var modA = this.mdlldr('modA');
-      //console.log('modA', modA);
+
+      var modA = this.mdlldr('modA');
+      var modB = this.mdlldr('modB');
+      var modC = this.mdlldr('packC/modC');
+      var modD = this.mdlldr('packD/modD');
+      var modE = this.mdlldr('packD/modE');
+      var modM = this.mdlldr('packC/packM/modM');
+      var modL = this.mdlldr('packD/modL');
+
+      test.equal(modA.id, 'a');
+      test.equal(modB.id, 'b');
+      test.equal(modC.id, 'c');
+      test.equal(modD.id, 'd');
+      test.equal(modE.id, 'e');
+      test.equal(modM.id, 'm');
+      test.equal(modL.id, 'l');
+      test.equal(modA.yo(), 'mamamamasmamaslhimamamamasmamaslhi');
+      test.equal(modB.yo(), 'mamamamasmamaslhi');
+
       test.done();
+
     });
 
-    //test.equal(mgo.eats, 'mongobites');
-    //test.equal(mgo.treats, 'nonnon');
   }
 
 };
