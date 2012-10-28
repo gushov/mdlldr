@@ -2,9 +2,4 @@
 
 var modE = require('./modE');
 
-module.exports = {
-  id: 'd',
-  yo: function () {
-    return modE.mama();
-  }
-};
+module.exports = {};

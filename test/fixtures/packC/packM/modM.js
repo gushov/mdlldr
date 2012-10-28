@@ -3,9 +3,4 @@
 var modC = require('../modC');
 var modL = require('../../packD/modL');
 
-module.exports = {
-  id: 'm',
-  mama: function () {
-    return 's' + modC.mama() + modL.yo();
-  }
-};
+module.exports = {};

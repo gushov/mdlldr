@@ -1,17 +1,23 @@
-/*global module:false*/
+/*global module:false */
 module.exports = function(grunt) {
 
   // Project configuration.
   grunt.initConfig({
+    pkg: '<json:package.json>',
     lint: {
-      files: ['grunt.js', 'lib/**/*.js', 'test/**/*.js']
+      files: ['grunt.js', 'lib/**/*.js', 'test/*.js']
     },
-    test: {
-      files: ['test/**/*_test.js']
+    buster: {
+      test: {
+        config: 'test/buster.js'
+      },
+      server: {
+        port: 1111
+      }
     },
     watch: {
       files: '<config:lint.files>',
-      tasks: 'lint test'
+      tasks: 'lint buster'
     },
     jshint: {
       options: {
@@ -24,13 +30,18 @@ module.exports = function(grunt) {
         sub: true,
         undef: true,
         boss: true,
-        eqnull: true
+        strict: false,
+        eqnull: true,
+        browser: true,
+        node: true
       },
       globals: {}
-    }
+    },
+    uglify: {}
   });
 
   // Default task.
-  grunt.registerTask('default', 'lint test');
+  grunt.registerTask('default', 'lint buster');
+  grunt.loadNpmTasks('grunt-buster');
 
 };

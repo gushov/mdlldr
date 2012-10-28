@@ -2,9 +2,4 @@
 
 var modD = require('./packD/modD');
 
-module.exports = {
-  id: 'b',
-  yo: function () {
-    return modD.yo();
-  }
-};
+module.exports = {};

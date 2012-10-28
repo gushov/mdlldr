@@ -2,9 +2,4 @@
 
 var myMod = require('myMod');
 
-module.exports = {
-  id: 'l',
-  yo: function () {
-    return 's' + this.id + myMod.hi();
-  }
-};
+module.exports = {};

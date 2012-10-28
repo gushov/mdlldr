@@ -1,18 +1,22 @@
-sharemodule
+mdlldr
 ====================
 
-Node module for sharing other Node modules with the browser.
+Node module for loading node modules in the browser
 
 Usage
 ---------------------
 
-You can use sharemodule to write a static file or as middleware.
+You can use mdlldr to write a static file
 
 
-### middleware
+### running
 
 tdb
 
 ### writing a static file
+
+tbd
+
+### testing
 
 tbd
