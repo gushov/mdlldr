@@ -25,12 +25,9 @@ buster.testCase("mdlldr", {
     var loaded = path.join(modulePath, '/loaded.js');
     var loadedJs = fs.readFileSync(loaded, 'utf8');
 
-    mdlldr.run(moduleNames, modulePath, {'myMod': 'myObj'}, function (err, js) {
+    mdlldr(moduleNames, modulePath, {'myMod': 'myObj'}, function (err, js) {
+      
       if (err) { throw new Error(err); }
-      // mdlldr.write('./test/fixtures/uhoh.js', js, function () {
-      //   assert(true);
-      //   done();
-      // });
       assert.equals(js, loadedJs);
       done();
 
