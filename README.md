@@ -11,15 +11,15 @@ __Arguments__
 * moduleNames - array of modules names
 * path - root path of modules
 * overrides - object map of module names to override
-* callback(error, moduleSrc) - callback function
+* callback(error, source) - callback function
 
---Example__
+__Example__
 
 ```javascript
 var mdlldr = require('mdlldr');
 
-mdlldr(['my-module'], './', { DateZ: 'DateZ' }, function (err, js) {
-  //now use js in middleware or write to file or something
+mdlldr(['my-module'], './', { DateZ: 'DateZ' }, function (error, source) {
+  //now use source in middleware or write it to file or something
 });
 ```
 
