@@ -1,22 +1,28 @@
-mdlldr
-====================
+# mdlldr
 
 Node module for loading node modules in the browser
 
-Usage
----------------------
+## Documentation
 
-You can use mdlldr to write a static file
+### mdlldr(moduleNames, path, overrides, callback)
 
+__Arguments__
 
-### running
+* moduleNames - array of modules names
+* path - root path of modules
+* overrides - object map of module names to override
+* callback(error, moduleSrc) - callback function
 
-tdb
+--Example__
 
-### writing a static file
+```javascript
+var mdlldr = require('mdlldr');
 
-tbd
+mdlldr(['my-module'], './', { DateZ: 'DateZ' }, function (err, js) {
+  //now use js in middleware or write to file or something
+});
+```
 
-### testing
-
-tbd
+## License
+Copyright (c) 2012 August Hovland
+Licensed under the MIT license.
