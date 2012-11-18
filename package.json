@@ -2,7 +2,7 @@
   "author": "August Hovland <contact@augusthovland.com>",
   "name": "mdlldr",
   "description": "Node module for loading Node modules in the browser.",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "repository": {
     "type": "git",
     "url": "git://github.com/gushov/mdlldr.git"
@@ -20,11 +20,7 @@
     "grunt-buster": ">= 0.1.x"
   },
   "optionalDependencies": {},
-  "licenses": [
-    {
-      "type": "MIT"
-    }
-  ],
+  "licenses": [{ "type": "MIT" }],
   "main": "lib/mdlldr",
   "scripts": {
     "test": "grunt buster"
