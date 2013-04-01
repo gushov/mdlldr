@@ -15,7 +15,9 @@
     "lil_": ">=0.0.x"
   },
   "devDependencies": {
-    "grunt": ">= 0.3.x",
+    "grunt": ">= 0.4.x",
+    "grunt-contrib-jshint": ">= 0.0.x",
+    "grunt-contrib-watch": ">= 0.0.x",
     "buster": ">= 0.6.x",
     "grunt-buster": ">= 0.1.x"
   },
